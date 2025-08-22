@@ -16,7 +16,7 @@ struct BlockHeader {
    char partitionName[16] [[name("Partition Name")]];
    char blank1[16] [[name("Blank1 16 bytes 0x00")]];
    char headerChecksum[2] [[name("Header Checksum")]];
-   type::Magic<"\x00\x10"> [[name("Constant (0x1000)")]];
+   u16 chunkSize [[name("Data chunk size for CRC")]];
    char blank2[2] [[name("Blank 2 bytes 0x00")]];
    char checksum[headerLength - 98] [[name("Data Checksum")]];
 };

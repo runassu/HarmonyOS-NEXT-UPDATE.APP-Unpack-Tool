@@ -1,0 +1,28 @@
+[build-system]
+requires = ["scikit-build-core"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "update-app-unpacker"
+version = "0.0.1"
+
+[tool.scikit-build]
+sdist.include = [
+    "CMakeLists.txt",
+    "update_app_unpacker/crc_lib/__init__.py",
+    "update_app_unpacker/crc_lib/crc16_lib_py.py",
+    "update_app_unpacker/crc_lib/crc16_lib.c",
+    "update_app_unpacker/crc_lib/crc16_lib.h",
+    "update_app_unpacker/crc_lib/crc16_lib.py",
+    "update_app_unpacker/unpacker.py",
+    "pyproject.toml"
+]
+sdist.exclude = ["*"]
+
+wheel.packages = [
+    "update_app_unpacker/crc_lib",
+    "update_app_unpacker",
+]
+
+[project.scripts]
+update-app-unpacker = "update_app_unpacker.unpacker:main"
