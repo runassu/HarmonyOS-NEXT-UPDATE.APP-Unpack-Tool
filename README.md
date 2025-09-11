@@ -13,6 +13,15 @@ The table below shows a general overview of the file structure. For the specific
 | sign data |  |
 | component chunk | component chunks listed in the order specified by the component info |
 
+## How To (For update.bin): 
+Codes For update.bin in [update_bin_unpacker.py](./update_bin_unpacker.py)
+
+### Run
+```
+usage: update_bin_unpacker.py [-h] --input_file INPUT_FILE [--hash] [--output_dir OUTPUT_DIR]
+example: python update_bin_unpacker.py -i ./update_full_base/update.bin --hash
+```
+
 ---
 
 **HarmonyOS NEXT 5** uses UPDATE.APP in update_full_base.zip, file structure is nearly the same as the Android version  
@@ -40,6 +49,7 @@ Partition Data larger than `4160749568` bytes will be splited to multiple blocks
 
 ## How To (For UPDATE.APP): 
 ### Building from source
+Codes For UPDATE.APP in [update_app_unpacker](./update_app_unpacker)
 ```
 pip install build
 python -m build
