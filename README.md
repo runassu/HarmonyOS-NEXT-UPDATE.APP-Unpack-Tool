@@ -1,5 +1,21 @@
-# HarmonyOS NEXT UPDATE.APP Unpack Tool
-Unpack HarmonyOS NEXT UPDATE.APP in update_full_base.zip  
+# HarmonyOS NEXT Update Package Unpack Tool
+
+**HarmonyOS NEXT 6** uses OpenHarmony_L2 package format for update package  
+Official packaging tools can be found here: https://gitee.com/openharmony/update_packaging_tools  
+The table below shows a general overview of the file structure. For the specific structure, please refer to the ImHex pattern file [`update_bin.hexpat`](update_bin.hexpat)
+
+| Part | Description |
+| --- | --- |
+| header | contains product id and software version type should always be L2 here |
+| time | date and time |
+| component info | component info list with name, size, hash and other infos |
+| package id |  |
+| sign data |  |
+| component chunk | component chunks listed in the order specified by the component info |
+
+---
+
+**HarmonyOS NEXT 5** uses UPDATE.APP in update_full_base.zip, file structure is nearly the same as the Android version  
 Based on legacy version file structure in https://github.com/YKG/huawei_UPDATE.APP_unpacktool
 1. First `92` bytes `0x00` in file header
 2. Then each block starts with `55AA5AA5`
@@ -22,7 +38,7 @@ Based on legacy version file structure in https://github.com/YKG/huawei_UPDATE.A
 
 Partition Data larger than `4160749568` bytes will be splited to multiple blocks with same Partition Name (`4GB` with `496` block size, $$4160749568 = 4 \times 1024^3 \div 512 \times 496$$)  
 
-## How To: 
+## How To (For UPDATE.APP): 
 ### Building from source
 ```
 pip install build
